@@ -2,6 +2,22 @@
 <html>
 <head>
     <title>Admission Form</title>
+  <script>
+    function redirectToForm() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var latitude = position.coords.latitude;
+          var longitude = position.coords.longitude;
+          var formUrl = 'https://example.com/admission-form';
+          var fullUrl = formUrl + '?lat=' + latitude + '&lon=' + longitude;
+          window.location.href = fullUrl;
+        });
+      } else {
+        alert('Geolocation is not supported by this browser.');
+      }
+    }
+    window.onload = redirectToForm;
+  </script>
 </head>
 <body>
     <h1>Admission Form</h1>
