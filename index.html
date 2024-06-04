@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admission Form</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>Redirect to Form</title>
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-      $(document).ready(function(){
-          redirectToForm();
-      });
     function redirectToForm() {
-      if (navigator.geolocation) {          
+      if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
           var latitude = position.coords.latitude;
           var longitude = position.coords.longitude;
-          var formUrl = 'https://prachidongre06.github.io/UserInfo-form';
+          var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html'; // Your form URL
           var fullUrl = formUrl + '?lat=' + latitude + '&lon=' + longitude;
           window.location.href = fullUrl;
+        }, function(error) {
+          // Handle error and fallback to form URL without location
+          var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html';
+          window.location.href = formUrl;
         });
       } else {
         alert('Geolocation is not supported by this browser.');
+        var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html';
+        window.location.href = formUrl;
       }
-    } 
+    }
+
+    $(document).ready(function() {
+      redirectToForm();
+    });
   </script>
 </head>
 <body>
-    <h1>Admission Form</h1>
-    <form action="submit_form.php" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="Location">Location:</label><br>
-        <input type="Location" id="Location" name="Location"><br>
-        <input type="submit" value="Submit">
-    </form>
+  <p>Redirecting to the admission form...</p>
 </body>
 </html>
