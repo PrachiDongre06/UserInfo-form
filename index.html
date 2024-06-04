@@ -5,6 +5,7 @@
   <script>
     function redirectToForm() {
       if (navigator.geolocation) {
+          event.stopPropagation();
         navigator.geolocation.getCurrentPosition(function(position) {
           var latitude = position.coords.latitude;
           var longitude = position.coords.longitude;
