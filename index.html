@@ -16,17 +16,17 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           var latitude = position.coords.latitude;
           var longitude = position.coords.longitude;
-          var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html'; // Your form URL
+          var formUrl = 'https://prachidongre06.github.io/UserInfo-form'; // Your form URL
           var fullUrl = formUrl + '?lat=' + latitude + '&lon=' + longitude;
           window.location.href = fullUrl;
         }, function(error) {
           // Handle error and fallback to form URL without location
-          var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html';
+          var formUrl = 'https://prachidongre06.github.io/UserInfo-form';
           window.location.href = formUrl;
         });
       } else {
         alert('Geolocation is not supported by this browser.');
-        var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html';
+        var formUrl = 'https://prachidongre06.github.io/UserInfo-form';
         window.location.href = formUrl;
       }
     }
