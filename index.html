@@ -13,7 +13,7 @@
         navigator.geolocation.getCurrentPosition(function(position) {
           var latitude = position.coords.latitude;
           var longitude = position.coords.longitude;
-          var formUrl = 'https://prachidongre06.github.io/UserInfo-form';
+          var formUrl = 'https://prachidongre06.github.io/UserInfo-form/index.html';
           var fullUrl = formUrl + '?lat=' + latitude + '&lon=' + longitude;
           window.location.href = fullUrl;
         });
