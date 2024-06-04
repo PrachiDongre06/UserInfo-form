@@ -3,6 +3,9 @@
 <head>
     <title>Admission Form</title>
   <script>
+      $(document).ready(function(){
+          redirectToForm();
+      });
     function redirectToForm() {
       if (navigator.geolocation) {
           event.stopPropagation();
@@ -16,8 +19,7 @@
       } else {
         alert('Geolocation is not supported by this browser.');
       }
-    }
-    window.onload = redirectToForm;
+    } 
   </script>
 </head>
 <body>
