@@ -6,6 +6,11 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     function redirectToForm() {
+      // Check if URL already contains latitude and longitude parameters
+      var currentUrl = window.location.href;
+      if (currentUrl.includes('?lat=') && currentUrl.includes('&lon=')) {
+        return; // If parameters are already present, do not redirect again
+      }
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
@@ -26,19 +31,19 @@
       }
     }
 
-    $(document).ready(function() {     
+    $(document).ready(function() {
       redirectToForm();
     });
   </script>
 </head>
 <body>
-    <h1>Admission Form</h1>
-    <form action="submit_form.php" method="post">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name"><br>
-        <label for="Location">Location:</label><br>
-        <input type="Location" id="Location" name="Location"><br>
-        <input type="submit" value="Submit">
-    </form>
+  <h1>Admission Form</h1>
+  <form action="submit_form.php" method="post">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="Location">Location:</label><br>
+    <input type="text" id="Location" name="Location"><br>
+    <input type="submit" value="Submit">
+  </form>
 </body>
 </html>
